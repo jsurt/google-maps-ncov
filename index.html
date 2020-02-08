@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=[KEY]&callBack=initMap()" async defer></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=[KEY]" async defer></script> -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      height: 100%;
+      background-color: #000;
+    }
+
+    :root {
+      --get-map-btn-w: 175px;
+      --get-map-btn-h: 50px;
+    }
+
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    #mapBtn, .mapBtn1 {
+      position: absolute;
+      top: calc(50% - var(--get-map-btn-h) / 2);
+      left: calc(50% - var(--get-map-btn-w) / 2);
+      width: var(--get-map-btn-w);
+      height: var(--get-map-btn-h);
+      color: #FFF;
+      font-size: 16px;
+      background-color: #46b1c7fa;
+      border-radius: 25px;
+      border: none;
+    }
+
+    #mapBtn:hover, 
+    #mapBtn:focus,
+    .mapBtn1:hover,
+    .mapBtn1:focus {
+      cursor: pointer;
+      outline: none;
+    }
+
+    .layer, 
+    .layer svg { 
+      position: absolute;
+    }
+
+    .layer svg {
+    width: 60px;
+    height: 60px;
+    padding-right: 100px;
+    font: 10px sans-serif;
+    }
+
+
+
+  </style>
+</head> 
+
+<body>
+
+  <!-- <div class="wrapper"> -->
+    <div id="map"></div>
+    <button id="mapBtn">TEST</button>
+  <!-- </div> -->
+
+  <!-- Scripts -->
+  <script src="./anime.min.js"></script>
+  <script src="./map-data.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    // let map;
+    function initMap() {
+      // map = new google.maps.Map(d3.select("#map").node(), {
+      console.log('Hello');
+      let map = new google.maps.Map(document.getElementById('map'), {
+        // center: { lat: 31.82571, lng: 117.2264},
+        center: new google.maps.LatLng(31.82571, 117.2264),
+        zoom: 5,
+        // matTypeId: google.maps.MapTypeId.TERRAIN,
+        styles: dark,
+      });
+
+      // d3.json('./ncov-time-series.json', (err, data) => {
+      //   for 
+      // });
+
+      // d3.json('./ncov-time-series.json', (err, data) => {
+      //   overlay = new google.maps.OverlayView();
+      //   overlay.onAdd = () => {
+      //     console.log(this);
+      //     console.log(err, data);
+      //     let layer = d3.select(overlay.getPanes().overlayLayer)
+      //       .append('div').attr('class', 'effective');
+
+      //     overlay.draw = () => {
+      //       let projection = overlay.getProjection();
+      //       let padding = 10;
+      //       // console.log(ncovJSON);
+      //       let marker = layer.selectAll('svg')
+      //         .data(d3.entries(data))
+      //         .each(transform)
+      //         .enter()
+      //         .append('svg')
+      //         .each(transform)
+      //         .attr('class', 'marker');
+
+      //       marker.append('circle')
+      //         .attr('r', 4.5)
+      //         .attr('cx', padding)
+      //         .attr('cy', padding);
+
+      //       function transform(d) {
+      //         // console.log('d', d);
+      //         // console.log(this);
+      //         d = new google.maps.LatLng(d.value.D, d.value.E);
+      //         d = projection.fromLatLngToDivPixel(d);
+      //         // console.log(d);
+      //         return d3.select(this)
+      //           .style("left", (d.x - padding) + "px")
+      //           .style("top", (d.y - padding) + "px");
+      //       }
+      //     };
+      //   };
+      //   overlay.setMap(map);
+      // });
+    };
+  </script><script src="https://maps.googleapis.com/maps/api/js?key=[KEY]" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=[KEY]" async defer></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=[KEY]&callback=initMap" async defer></script> -->
+  <script>
+    function plz() {
+      console.log('plz');
+      initMap();
+    }
+  </script>
+  <!-- <button id="mapBtn" onclick="plz()">TEST</button> -->
+</body>
+
+</html>
